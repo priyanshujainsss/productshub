@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 Products Hub
 
-## Getting Started
+This is a simple e-commerce-style product listing app built using Next.js. It includes product listing, filters, pagination, and a product detail page.
 
-First, run the development server:
+---
+
+## 🚀 Setup
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Start the app:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Open in browser:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ⚙️ Assumptions
 
-To learn more about Next.js, take a look at the following resources:
+- Data is coming from the DummyJSON API.
+- The API doesn’t support all filters (like price and brand), so those are handled on the frontend.
+- Some products might not have complete data (like brand or reviews), so basic checks are added.
+- Pagination is handled using `limit` and `skip`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🧱 Approach & Decisions
 
-## Deploy on Vercel
+- Used Next.js App Router for structure and routing.
+- Kept filters in the URL so they persist when navigating back or refreshing.
+- Separated responsibilities:
+  - Products page handles API calls, filters, and pagination.
+  - Filters component only manages UI and updates the URL.
+  - ProductCard is reusable for listing.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Used Tailwind for quick and clean UI.
+- Combined API filtering (category) with client-side filtering (price, brand).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🔧 If I Had More Time
+
+- Add React Query for better data handling and caching.
+- Improve loading states with skeleton UI.
+- Debounce filter inputs to avoid too many API calls.
+- Move all filtering to backend (if API allows).
+- Add search functionality.
+- Improve mobile UI and polish interactions.
+- Add cart / wishlist features.
+- Add tests.
+- Sync pagination with URL as well.
+
+---
+
+## 🛠 Tech Used
+
+- Next.js
+- React
+- Tailwind CSS
+- Axios
+
+---
+
+## ✨ Features
+
+- Product listing grid
+- Filters (category, price, brand)
+- Pagination
+- Product detail page
+- Image gallery and reviews
+- URL-based filter persistence
+
+---
